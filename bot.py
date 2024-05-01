@@ -40,12 +40,17 @@ async def start_command(message: types.Message):
     conn.close()
     keyboard = types.InlineKeyboardMarkup()
 
+    schedule_button = types.InlineKeyboardButton(text="Schedule",
+                                                 web_app=WebAppInfo(
+                                                     url="https://www.geckoterminal.com/ton/pools/"
+                                                         "EQBwOb91RvqrtRg5hpriobYItogJIKVLzkhPmHxmilkuqx4G"))
     chanel_button = types.InlineKeyboardButton(text="PEPE", url="https://t.me/pepecoin_ton")
     ru_chat_button = types.InlineKeyboardButton(text="PEPE Chat", url="https://t.me/pepetonchat")
     site_button = types.InlineKeyboardButton(text="Site", web_app=WebAppInfo(url="https://pepeton.fun/"))
     x_button = types.InlineKeyboardButton(text="X (Twitter)", url="https://x.com/pepecoin_ton")
     purchase_exchange_button = types.InlineKeyboardButton(text="Purchase and exchange",
                                                           callback_data="purchase_exchange")
+    keyboard.add(schedule_button)
     keyboard.add(chanel_button, ru_chat_button)
     keyboard.add(site_button, x_button)
     keyboard.add(purchase_exchange_button)
@@ -66,7 +71,8 @@ async def purchase_exchange_callback_handler(callback_query: types.CallbackQuery
 
     # stonfi_button = types.InlineKeyboardButton(text="Ston.FI", web_app=WebAppInfo(
     #     url="https://app.ston.fi/swap?chartVisible=false&chartInterval=1w&ft=TON&tt=durev"))
-    dedust_button = types.InlineKeyboardButton(text="DeDust", web_app=WebAppInfo(url="https://dedust.io/swap/TON/EQCXzO7HhoK5fDQuCONE43l8-Qsreq5zq89ZVNhEna24eK-h"))
+    dedust_button = types.InlineKeyboardButton(text="DeDust", web_app=WebAppInfo(
+        url="https://dedust.io/swap/TON/EQCXzO7HhoK5fDQuCONE43l8-Qsreq5zq89ZVNhEna24eK-h"))
     ton_diamonds_button = types.InlineKeyboardButton(text="TON Diamonds", web_app=WebAppInfo(
         url="https://ton.diamonds/dex/swap?inputToken=TON&outputToken=EQCXzO7HhoK5fDQuCONE43l8-Qsreq5zq89ZVNhEna24eK-h"))
     ton_planets_button = types.InlineKeyboardButton(text="TON Planets", web_app=WebAppInfo(
